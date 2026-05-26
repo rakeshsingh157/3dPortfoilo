@@ -32,10 +32,9 @@ const Footer = () => {
   }, []);
 
   const socialLinks = [
-    { icon: <FiGithub />, label: 'GITHUB', url: '#', color: 'hover:text-red-500' },
-    { icon: <FiTwitter />, label: 'TWITTER', url: '#', color: 'hover:text-cyan-400' },
-    { icon: <FiLinkedin />, label: 'LINKEDIN', url: '#', color: 'hover:text-blue-500' },
-    { icon: <FiInstagram />, label: 'INSTAGRAM', url: '#', color: 'hover:text-violet-500' },
+    { icon: <FiGithub />, label: 'GITHUB', url: 'https://github.com/rakeshsingh157', color: 'hover:text-cyan-500' },
+    { icon: <FiLinkedin />, label: 'LINKEDIN', url: 'https://www.linkedin.com/in/rakesh-kumar-singh-14b17331a/', color: 'hover:text-blue-500' },
+    { icon: <FiTwitter />, label: 'PORTFOLIO', url: 'https://rakeshinfo.in/', color: 'hover:text-cyan-400' },
   ];
 
   return (
@@ -83,11 +82,11 @@ const Footer = () => {
                 <FiCpu className="text-cyan-500 text-xl group-hover:text-white transition-colors" />
               </div>
               <h3 className="text-2xl font-black text-white tracking-tighter uppercase italic">
-                LEESH<span className="text-cyan-600">ARK</span>
+                RAKESH<span className="text-cyan-600">SINGH</span>
               </h3>
             </div>
             <p className="text-gray-500 text-xs leading-relaxed uppercase tracking-widest font-light">
-              Designing the future of digital architecture with precision engineering and creative intelligence.
+              Crafting modern, scalable and high-performance web applications with precision engineering and creative intelligence.
             </p>
             <div className="flex items-center space-x-2">
               <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulseShadow"></span>
@@ -202,7 +201,7 @@ const Footer = () => {
                 Local_Time: {systemTime}
              </div>
              <p className="text-[9px] text-gray-700 tracking-[0.2em] font-mono uppercase">
-                &copy; LEESHARK. ALL NEURAL LINKS RESERVED.
+                &copy; 2026 RAKESH KUMAR SINGH. ALL RIGHTS RESERVED.
              </p>
           </div>
         </div>

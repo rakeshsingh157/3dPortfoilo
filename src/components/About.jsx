@@ -4,36 +4,51 @@ import {
   SiReact, 
   SiTailwindcss, 
   SiMongodb, 
-  SiFastapi, 
-  SiGit 
+  SiNodedotjs, 
+  SiPython,
+  SiJavascript,
+  SiCplusplus,        // ✅ correct
+  SiDotnet,           // ✅ use this instead of SiCsharp (no C# icon exists)
+  SiPhp,              // ✅ correct
+  SiHtml5,            // ✅ correct
+  SiMysql,            // ✅ correct
+  SiPostgresql        // ✅ correct
 } from "react-icons/si";
+// DELETE these 6 lines:
 
 export default function About() {
   const Aboutdata = [
     {
       icon: <FiCode size={20} />,
-      title: "Languages",
-      desc: "HTML, CSS, JS, React, FastAPI, MongoDB",
+      title: "Languages & Tools",
+      desc: "Node.js, C/C++, HTML/CSS, Python, C#",
     },
     {
       icon: <FiBookOpen size={20} />,
       title: "Education",
-      desc: "B.E Computer Science",
+      desc: "BSc IT (Pursuing)",
     },
     {
       icon: <FiAward size={20} />,
-      title: "Projects",
-      desc: "Built 5+ modern web projects",
+      title: "Experience",
+      desc: "3X Gamathon Winner & 2x Hackathon Winner",
     },
   ];
 
-  const Tools = [
-    { icon: <SiReact size={24} />, title: "React js" },
-    { icon: <SiTailwindcss size={24} />, title: "Tailwind css" },
-    { icon: <SiMongodb size={24} />, title: "MongoDB" },
-    { icon: <SiFastapi size={24} />, title: "FastAPI" },
-    { icon: <SiGit size={24} />, title: "Git" },
-  ];
+const Tools = [
+  { icon: <SiReact size={24} />, title: "React js" },
+  { icon: <SiNodedotjs size={24} />, title: "Node.js" },
+  { icon: <SiPython size={24} />, title: "Python" },
+  { icon: <SiJavascript size={24} />, title: "JavaScript" },
+  { icon: <SiTailwindcss size={24} />, title: "Tailwind CSS" },
+  { icon: <SiMongodb size={24} />, title: "MongoDB" },
+  { icon: <SiCplusplus size={24} />, title: "C/C++" },
+ { icon: <SiDotnet size={24} />, title: "C#" },  
+  { icon: <SiPhp size={24} />, title: "PHP" },
+  { icon: <SiHtml5 size={24} />, title: "HTML5" },
+  { icon: <SiMysql size={24} />, title: "MySQL" },
+  { icon: <SiPostgresql size={24} />, title: "PostgreSQL" },
+];
 
   return (
     <div id="about" className="relative w-full min-h-screen bg-[#020202] overflow-hidden flex items-center justify-center font-sans tracking-wide py-20 px-6 md:px-12">
@@ -45,7 +60,7 @@ export default function About() {
         {/* --- STATIC FRAME IMAGE (LEFT 45%) --- */}
         <div className="absolute inset-y-0 left-0 w-[45%] z-10 pointer-events-none overflow-hidden hidden lg:block" style={{ WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)', maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%)' }}>
             <img 
-               src="/images/ezgif-frame-240.jpg" 
+               src="/images/ezgif-frame-284.png" 
                alt="About Profile" 
                className="w-full h-full object-cover opacity-50 grayscale" 
             />
@@ -109,7 +124,9 @@ export default function About() {
                 {/* CTA */}
                 <div className="pt-6">
                     <a 
-                        href="/resume.pdf" 
+                        href="https://www.rakeshinfo.in/resume.pdf"
+                        target="_blank"
+                        rel="noreferrer"
                         className="inline-flex items-center space-x-6 px-12 py-4 bg-blue-600 text-white font-bold text-xs uppercase tracking-widest hover:bg-blue-700 transition-all duration-300 rounded-full shadow-lg shadow-blue-900/20"
                     >
                         <span>Download Resume</span>

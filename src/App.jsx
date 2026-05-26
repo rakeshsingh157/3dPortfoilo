@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 
@@ -8,9 +8,12 @@ const Services = lazy(() => import('./components/Services'));
 const Portfolio = lazy(() => import('./components/Portfolio'));
 const FrameScrollAnimation = lazy(() => import('./components/FrameScrollAnimation'));
 const Contact = lazy(() => import('./components/Contact'));
-const Footer = lazy(() => import('./components/Footer'));
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -23,7 +26,6 @@ function App() {
         <Portfolio />
         <Services />
         <Contact />
-        <Footer />
       </Suspense>
     </>
   );

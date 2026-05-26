@@ -1,14 +1,284 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- ========== CORE META ========== -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Leesh Ark - Futuristic Portfolio & AI Laboratory" />
-    <meta name="keywords" content="Portfolio, 3D, React, AI, Robotic UI, Futuristic Design" />
-    <meta property="og:title" content="Leesh Ark | Portfolio" />
-    <meta property="og:description" content="Explore the hyper-futuristic world of Leesh Ark." />
-    <title>Leesh Ark | Futuristic Portfolio</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- ========== SEO META TAGS ========== -->
+    <!-- Primary keyword: "Full Stack Developer Portfolio" — 56 chars title -->
+    <title>Rakesh Kumar Singh | Full Stack Developer Portfolio</title>
+    <!-- Action-oriented description — 158 chars -->
+    <meta name="description" content="Explore the portfolio of Rakesh Kumar Singh — Full Stack Developer crafting high-performance web apps with React, Node.js, AI/ML, and modern architectures." />
+    <meta name="keywords" content="Rakesh Kumar Singh, Full Stack Developer, React Developer, Node.js Developer, Portfolio, Web Developer India, AI ML Developer, 3D Portfolio, Frontend Developer, Backend Developer" />
+    <meta name="author" content="Rakesh Kumar Singh" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    <link rel="canonical" href="https://rakeshinfo.in/" />
+
+    <!-- ========== FAVICON & APP ICONS ========== -->
+    <link rel="icon" type="image/jpg" href="/favicon.jpg" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- ========== THEME & MOBILE ========== -->
+    <meta name="theme-color" content="#020202" />
+    <meta name="msapplication-TileColor" content="#020202" />
+    <meta name="color-scheme" content="dark" />
+
+    <!-- ========== OPEN GRAPH (Facebook, LinkedIn, WhatsApp) ========== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Rakesh Kumar Singh — Portfolio" />
+    <meta property="og:title" content="Rakesh Kumar Singh | Full Stack Developer Portfolio" />
+    <meta property="og:description" content="Discover the work of Rakesh Kumar Singh — Full Stack Developer building scalable web apps, AI-driven solutions, and immersive digital experiences." />
+    <meta property="og:url" content="https://rakeshinfo.in/" />
+    <!-- Primary OG image — profile/branding image for social shares -->
+    <meta property="og:image" content="https://rakeshinfo.in/5.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rakesh Kumar Singh — Full Stack Developer, Hackathon Winner, Runner-Up at Game x Innovate HackSprint" />
+    <!-- Additional OG images — social platforms may pick any of these -->
+    <meta property="og:image" content="https://rakeshinfo.in/profile.jpeg" />
+    <meta property="og:image:alt" content="Rakesh Kumar Singh at India Skills 2025 Maharashtra — Full Stack Developer" />
+    <meta property="og:image" content="https://rakeshinfo.in/4.jpg" />
+    <meta property="og:image:alt" content="Team Fusion Nova — CodeBug Coding Hackathon 2026 Winner with trophy and prize" />
+    <meta property="og:image" content="https://rakeshinfo.in/3.jpg" />
+    <meta property="og:image:alt" content="Rakesh Kumar Singh attending Ace Hack 5.0 Hackathon event" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- ========== TWITTER CARD ========== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rakesh Kumar Singh | Full Stack Developer Portfolio" />
+    <meta name="twitter:description" content="Explore the portfolio of Rakesh Kumar Singh — Full Stack Developer crafting high-performance web apps with React, Node.js, and AI/ML." />
+    <meta name="twitter:image" content="https://rakeshinfo.in/5.jpg" />
+    <meta name="twitter:image:alt" content="Rakesh Kumar Singh — Full Stack Developer Portfolio" />
+
+    <!-- ========== PERFORMANCE: PRECONNECT & DNS PREFETCH ========== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+
+    <!-- ========== JSON-LD STRUCTURED DATA ========== -->
+
+    <!-- 1. Person Schema — for the developer/author -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Rakesh Kumar Singh",
+      "url": "https://rakeshinfo.in",
+      "image": "https://rakeshinfo.in/profile.jpeg",
+      "jobTitle": "Full Stack Developer",
+      "description": "Full Stack Developer specializing in React, Node.js, AI/ML, and modern web technologies. Multiple Hackathon and Gamathon winner.",
+      "sameAs": [
+        "https://github.com/rakeshsingh157",
+        "https://www.linkedin.com/in/rakesh-kumar-singh-14b17331a/"
+      ],
+      "knowsAbout": ["React", "Node.js", "JavaScript", "Python", "AI/ML", "Flutter", "MongoDB", "PostgreSQL", "C++", "PHP"],
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "BSc IT Program"
+      },
+      "award": [
+        "CodeBug Coding Hackathon 2026 Winner — Team Fusion Nova",
+        "Game x Innovate HackSprint 7.0 Runner-Up — Team Fusion Nova",
+        "India Skills 2025 Maharashtra Participant",
+        "2X Invento Gamathon Winner (2025 & 2026)",
+        "Techxpression Hackathon First Place"
+      ]
+    }
+    </script>
+
+    <!-- 2. WebSite Schema — with SearchAction for sitelinks search box -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Rakesh Kumar Singh Portfolio",
+      "url": "https://rakeshinfo.in",
+      "description": "Portfolio of Rakesh Kumar Singh — Full Stack Developer crafting modern, scalable web applications.",
+      "author": {
+        "@type": "Person",
+        "name": "Rakesh Kumar Singh"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://rakeshinfo.in/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- 3. BreadcrumbList Schema — site navigation structure -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://rakeshinfo.in/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "item": "https://rakeshinfo.in/#about"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Projects",
+          "item": "https://rakeshinfo.in/#projects"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Services",
+          "item": "https://rakeshinfo.in/#services"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "Contact",
+          "item": "https://rakeshinfo.in/#contactme"
+        }
+      ]
+    }
+    </script>
+
+    <!-- 4. FAQPage Schema — common questions about your services -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does Rakesh Kumar Singh offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rakesh offers Full Stack Web Development using React, Node.js, and modern frameworks, AI/ML solutions, cross-platform App Development with Flutter, and algorithmic Problem Solving."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What technologies does Rakesh Kumar Singh work with?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rakesh works with React, Node.js, Python, JavaScript, Tailwind CSS, MongoDB, PostgreSQL, C/C++, C#, PHP, Flutter, and various AI/ML frameworks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I contact Rakesh Kumar Singh for a project?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can reach Rakesh through the Contact form on his portfolio website at rakeshinfo.in, or connect via GitHub and LinkedIn profiles linked on the site."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- 5. ProfilePage Schema — Google Knowledge Panel signal -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Rakesh Kumar Singh",
+        "url": "https://rakeshinfo.in",
+        "image": "https://rakeshinfo.in/profile.jpeg",
+        "jobTitle": "Full Stack Developer"
+      },
+      "dateCreated": "2024-01-01",
+      "dateModified": "2026-05-26"
+    }
+    </script>
+
+    <!-- 6. ImageGallery Schema — ALL portfolio images for Google Image Search -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "Rakesh Kumar Singh — Developer Portfolio Gallery",
+      "description": "Photos of Rakesh Kumar Singh — Full Stack Developer, hackathon winner, and tech event participant from India.",
+      "url": "https://rakeshinfo.in/#about",
+      "author": {
+        "@type": "Person",
+        "name": "Rakesh Kumar Singh"
+      },
+      "image": [
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://rakeshinfo.in/profile.jpeg",
+          "name": "Rakesh Kumar Singh at India Skills 2025 Maharashtra",
+          "description": "Rakesh Kumar Singh representing at India Skills 2025 Maharashtra state-level competition, organized by Skill India and Government of India.",
+          "caption": "Rakesh Kumar Singh at India Skills 2025 Maharashtra — Full Stack Developer and Skill India participant"
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://rakeshinfo.in/1.jpg",
+          "name": "Rakesh Kumar Singh candid urban portrait",
+          "description": "Candid photo of Rakesh Kumar Singh, Full Stack Developer based in India, in a casual urban setting.",
+          "caption": "Rakesh Kumar Singh — Full Stack Developer, candid portrait"
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://rakeshinfo.in/2.jpg",
+          "name": "Rakesh Kumar Singh professional headshot",
+          "description": "Professional headshot of Rakesh Kumar Singh, Full Stack Developer specializing in React, Node.js, and AI/ML.",
+          "caption": "Rakesh Kumar Singh — Professional headshot, Full Stack Developer India"
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://rakeshinfo.in/3.jpg",
+          "name": "Rakesh Kumar Singh at Ace Hack 5.0 Hackathon",
+          "description": "Rakesh Kumar Singh attending Ace Hack 5.0 hackathon event with Minecraft-themed photo booth.",
+          "caption": "Rakesh Kumar Singh at Ace Hack 5.0 — Hackathon participant and developer"
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://rakeshinfo.in/4.jpg",
+          "name": "Team Fusion Nova — CodeBug Coding Hackathon 2026 Winners",
+          "description": "Team Fusion Nova winning first place at CodeBug Coding Hackathon 2026 with trophy and ₹15,000 prize. Rakesh Kumar Singh as team member.",
+          "caption": "CodeBug Coding Hackathon 2026 Winner — Team Fusion Nova with trophy and prize cheque of ₹15,000"
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://rakeshinfo.in/5.jpg",
+          "name": "Rakesh Kumar Singh — Game x Innovate HackSprint 7.0 Runner-Up",
+          "description": "Rakesh Kumar Singh as Runner-Up at Game x Innovate HackSprint 7.0 Grand Finale at Marathwada Mitra Mandal College of Engineering, Pune. Team Fusion Nova winning ₹7,500 prize.",
+          "caption": "Game x Innovate HackSprint 7.0 Runner-Up — Rakesh Kumar Singh, Team Fusion Nova, MMCOE Pune"
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://rakeshinfo.in/6.jpg",
+          "name": "Rakesh Kumar Singh at Jantar Mantar Jaipur",
+          "description": "Rakesh Kumar Singh visiting Jantar Mantar observatory in Jaipur, Rajasthan — historic astronomical instrument site.",
+          "caption": "Rakesh Kumar Singh at Jantar Mantar, Jaipur — exploring history and architecture"
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://rakeshinfo.in/7.jpg",
+          "name": "Rakesh Kumar Singh with friends at Jantar Mantar Jaipur",
+          "description": "Rakesh Kumar Singh with colleagues at the iconic Jantar Mantar observatory in Jaipur, Rajasthan.",
+          "caption": "Rakesh Kumar Singh and team at Jantar Mantar, Jaipur — group photo"
+        },
+        {
+          "@type": "ImageObject",
+          "contentUrl": "https://rakeshinfo.in/8.jpg",
+          "name": "Rakesh Kumar Singh outdoor portrait",
+          "description": "Outdoor portrait of Rakesh Kumar Singh, Full Stack Developer, in a city environment with golden hour lighting.",
+          "caption": "Rakesh Kumar Singh — outdoor portrait, Full Stack Developer India"
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -51,6 +51,12 @@ const FrameScrollAnimation = ({ frameCount = 240 }) => {
             setLoaded(true);
           }
         };
+        img.onerror = () => {
+          loadedCount++;
+          if (loadedCount === frameCount) {
+            setLoaded(true);
+          }
+        };
         images.current.push(img);
       }
     };
@@ -155,20 +161,34 @@ const FrameScrollAnimation = ({ frameCount = 240 }) => {
 
         {/* Global Cinematic Vibe */}
         <div className="absolute inset-0 pointer-events-none bg-radial-vignette opacity-40" />
-      </div>
 
-      {/* Transitional Text Overlay */}
-      <motion.div 
-        style={{ opacity: useTransform(smoothProgress, [0.1, 0.3, 0.7, 0.9], [0, 1, 1, 0]) }}
-        className="absolute inset-x-0 top-[50%] -translate-y-1/2 flex flex-col items-center justify-center text-center pointer-events-none z-[60]"
-      >
-        <h3 className="text-white text-4xl md:text-8xl font-black uppercase tracking-tighter mb-2 drop-shadow-2xl">
-          Welcome to my <span className="text-blue-500">Portfolio</span>
-        </h3>
-        <p className="text-blue-400 font-mono tracking-[0.6em] uppercase text-[12px] opacity-70">
-          Core System Interface
-        </p>
-      </motion.div>
+        {/* Cinematic Text Reveal — synced to ~frame 143 */}
+        <motion.div 
+          style={{ 
+            opacity: useTransform(smoothProgress, [0.50, 0.58, 0.68, 0.78], [0, 1, 1, 0]),
+            scale: useTransform(smoothProgress, [0.50, 0.58, 0.68, 0.78], [0.85, 1, 1, 1.05]),
+          }}
+          className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none z-[60]"
+        >
+          <motion.h3 
+            style={{
+              letterSpacing: useTransform(smoothProgress, [0.50, 0.60, 0.75], ["-0.05em", "0.02em", "0.15em"]),
+              fontSize: 'clamp(1.5rem, 6vw, 90px)',
+            }}
+            className="text-white font-black uppercase mb-80 drop-shadow-2xl px-4"
+          >
+            Welcome to my <span className="text-blue-500">Portfolio</span>
+          </motion.h3>
+          <motion.p 
+            style={{
+              opacity: useTransform(smoothProgress, [0.54, 0.62, 0.68, 0.76], [0, 1, 1, 0]),
+            }}
+            className="text-blue-400 font-mono tracking-[0.3em] sm:tracking-[0.6em] uppercase text-[10px] sm:text-[12px] px-4"
+          >
+            Core System Interface
+          </motion.p>
+        </motion.div>
+      </div>
     </div>
   );
 };

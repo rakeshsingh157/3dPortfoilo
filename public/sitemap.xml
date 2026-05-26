@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  XML Sitemap for rakeshinfo.in
+  Portfolio of Rakesh Kumar Singh — Full Stack Developer
+
+  SUBMISSION INSTRUCTIONS:
+  ========================
+  Google Search Console:
+    1. Go to https://search.google.com/search-console
+    2. Add property: https://rakeshinfo.in
+    3. Navigate to "Sitemaps" in the left menu
+    4. Enter "sitemap.xml" and click "Submit"
+
+  Bing Webmaster Tools:
+    1. Go to https://www.bing.com/webmasters
+    2. Add your site: https://rakeshinfo.in
+    3. Navigate to "Sitemaps" → "Submit Sitemap"
+    4. Enter "https://rakeshinfo.in/sitemap.xml"
+
+  Priority Guide:
+    1.0 = Homepage (most important)
+    0.9 = Main sections (About, Projects)
+    0.8 = Important pages (Services)
+    0.7 = Contact and secondary pages
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- HOMEPAGE — highest priority, includes all portfolio images for Google Image indexing -->
+  <url>
+    <loc>https://rakeshinfo.in/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+
+    <!-- Profile photo — India Skills 2025 Maharashtra -->
+    <image:image>
+      <image:loc>https://rakeshinfo.in/profile.jpeg</image:loc>
+      <image:title>Rakesh Kumar Singh at India Skills 2025 Maharashtra</image:title>
+      <image:caption>Rakesh Kumar Singh representing at India Skills 2025 Maharashtra state-level competition — Full Stack Developer and Skill India participant</image:caption>
+    </image:image>
+
+    <!-- Candid urban portrait -->
+    <image:image>
+      <image:loc>https://rakeshinfo.in/1.jpg</image:loc>
+      <image:title>Rakesh Kumar Singh — Full Stack Developer candid portrait</image:title>
+      <image:caption>Candid photo of Rakesh Kumar Singh, Full Stack Developer based in India, in a casual urban metro setting</image:caption>
+    </image:image>
+
+    <!-- Professional headshot -->
+    <image:image>
+      <image:loc>https://rakeshinfo.in/2.jpg</image:loc>
+      <image:title>Rakesh Kumar Singh — Professional headshot</image:title>
+      <image:caption>Professional headshot of Rakesh Kumar Singh, Full Stack Developer specializing in React, Node.js, and AI/ML</image:caption>
+    </image:image>
+
+    <!-- Ace Hack 5.0 Hackathon -->
+    <image:image>
+      <image:loc>https://rakeshinfo.in/3.jpg</image:loc>
+      <image:title>Rakesh Kumar Singh at Ace Hack 5.0 Hackathon</image:title>
+      <image:caption>Rakesh Kumar Singh attending Ace Hack 5.0 hackathon event — developer and hackathon participant</image:caption>
+    </image:image>
+
+    <!-- CodeBug Hackathon 2026 Winner -->
+    <image:image>
+      <image:loc>https://rakeshinfo.in/4.jpg</image:loc>
+      <image:title>Team Fusion Nova — CodeBug Coding Hackathon 2026 Winner</image:title>
+      <image:caption>Team Fusion Nova winning first place at CodeBug Coding Hackathon 2026 with trophy and ₹15,000 prize — Rakesh Kumar Singh as team member</image:caption>
+    </image:image>
+
+    <!-- Game x Innovate HackSprint 7.0 Runner-Up -->
+    <image:image>
+      <image:loc>https://rakeshinfo.in/5.jpg</image:loc>
+      <image:title>Rakesh Kumar Singh — Game x Innovate HackSprint 7.0 Runner-Up</image:title>
+      <image:caption>Runner-Up at Game x Innovate HackSprint 7.0 Grand Finale at MMCOE Pune — Team Fusion Nova winning ₹7,500 prize</image:caption>
+    </image:image>
+
+    <!-- Jantar Mantar Jaipur selfie -->
+    <image:image>
+      <image:loc>https://rakeshinfo.in/6.jpg</image:loc>
+      <image:title>Rakesh Kumar Singh at Jantar Mantar Jaipur</image:title>
+      <image:caption>Rakesh Kumar Singh visiting Jantar Mantar observatory in Jaipur, Rajasthan — historic astronomical instrument site</image:caption>
+    </image:image>
+
+    <!-- Group photo at Jantar Mantar -->
+    <image:image>
+      <image:loc>https://rakeshinfo.in/7.jpg</image:loc>
+      <image:title>Rakesh Kumar Singh with friends at Jantar Mantar Jaipur</image:title>
+      <image:caption>Rakesh Kumar Singh with colleagues at the iconic Jantar Mantar observatory in Jaipur, Rajasthan</image:caption>
+    </image:image>
+
+    <!-- Outdoor portrait with golden hour -->
+    <image:image>
+      <image:loc>https://rakeshinfo.in/8.jpg</image:loc>
+      <image:title>Rakesh Kumar Singh — outdoor portrait</image:title>
+      <image:caption>Outdoor portrait of Rakesh Kumar Singh, Full Stack Developer, with golden hour lighting in a city environment</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ABOUT SECTION — updated monthly with new skills/experience -->
+  <url>
+    <loc>https://rakeshinfo.in/#about</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rakeshinfo.in/profile.jpeg</image:loc>
+      <image:title>Rakesh Kumar Singh — About Me profile photo</image:title>
+      <image:caption>Rakesh Kumar Singh, Full Stack Developer — About section profile photo at India Skills 2025</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rakeshinfo.in/2.jpg</image:loc>
+      <image:title>Rakesh Kumar Singh professional headshot</image:title>
+      <image:caption>Professional headshot of Rakesh Kumar Singh for the About section</image:caption>
+    </image:image>
+  </url>
+
+  <!-- PROJECTS/PORTFOLIO SECTION — updated when new projects are added -->
+  <url>
+    <loc>https://rakeshinfo.in/#projects</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://rakeshinfo.in/4.jpg</image:loc>
+      <image:title>Team Fusion Nova — Hackathon Winners showcase</image:title>
+      <image:caption>Rakesh Kumar Singh and Team Fusion Nova winning CodeBug Coding Hackathon 2026</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://rakeshinfo.in/5.jpg</image:loc>
+      <image:title>Game x Innovate HackSprint Runner-Up</image:title>
+      <image:caption>Rakesh Kumar Singh as Runner-Up at Game x Innovate HackSprint 7.0 MMCOE Pune</image:caption>
+    </image:image>
+  </url>
+
+  <!-- SERVICES SECTION — updated infrequently -->
+  <url>
+    <loc>https://rakeshinfo.in/#services</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- CONTACT SECTION — rarely changes -->
+  <url>
+    <loc>https://rakeshinfo.in/#contactme</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- RESUME / CV — direct download link -->
+  <url>
+    <loc>https://rakeshinfo.in/resume.pdf</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- INDIVIDUAL IMAGE PAGES — for direct Google Image Search indexing -->
+  <url>
+    <loc>https://rakeshinfo.in/profile.jpeg</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rakeshinfo.in/1.jpg</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://rakeshinfo.in/2.jpg</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://rakeshinfo.in/3.jpg</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://rakeshinfo.in/4.jpg</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rakeshinfo.in/5.jpg</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rakeshinfo.in/6.jpg</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://rakeshinfo.in/7.jpg</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://rakeshinfo.in/8.jpg</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+</urlset>

@@ -21,23 +21,23 @@ export default function Services() {
   const mainServices = [
     {
       icon: <FiLayout size={24} />,
-      title: "Frontend Development",
-      p: "Create responsive, fast, and modern user interfaces using React, Tailwind CSS, and reusable components.",
+      title: "Web Development",
+      p: "Building responsive and interactive web applications using modern frameworks like React, Node.js, and Next.js.",
     },
     {
       icon: <FiServer size={24} />,
-      title: "Backend & API Design",
-      p: "Design and develop secure REST APIs and database integration using FastAPI, Node.js, and MongoDB.",
+      title: "AI & ML",
+      p: "Exploring intelligent systems, generative AI, and machine learning models to build smart applications.",
     },
     {
       icon: <FiCloud size={24} />,
-      title: "Deployment & Hosting",
-      p: "Deploy applications on cloud platforms with domain setup and production-ready server configurations.",
+      title: "App Development",
+      p: "Creating seamless mobile experiences using Flutter, focusing on cross-platform performance and design.",
     },
     {
       icon: <FiZap size={24} />,
-      title: "Real-Time Solutions",
-      p: "Develop features like chat apps and live notifications using WebSockets and FastAPI.",
+      title: "Problem Solving",
+      p: "Passionate about solving real-world challenges, data structures, and crafting optimized algorithms.",
     },
   ];
 
@@ -104,7 +104,7 @@ export default function Services() {
         </h2>
         <div className="w-24 h-[1px] bg-blue-500/40 mx-auto mb-8"></div>
         <p className="max-w-3xl mx-auto text-gray-500 font-light text-base leading-relaxed">
-          Leveraging my experience from production-level applications and real-time startup incubation projects to build scalable digital solutions.
+          Building responsive web interfaces, deep diving into AI/ML, crafting mobile experiences, and solving real-world challenges through code.
         </p>
       </div>
 
@@ -157,16 +157,15 @@ export default function Services() {
 
               <div className="flex gap-4 mb-8">
                 <div className="h-10 px-3 bg-white flex items-center justify-center rounded-sm">
-                   <span className="text-black font-black text-[10px] tracking-tighter">AGROGANAM</span>
+                   <span className="text-black font-black text-[10px] tracking-tighter">GAMATHON</span>
                 </div>
                 <div className="h-10 px-3 border border-white/20 flex items-center justify-center rounded-sm">
-                   <span className="text-white font-bold text-[10px] tracking-widest">INCUBATION</span>
+                   <span className="text-white font-bold text-[10px] tracking-widest">HACKATHONS</span>
                 </div>
               </div>
 
               <p className="text-gray-400 font-light text-sm leading-relaxed mb-12">
-                Completed a 6-month internship at <span className="text-white font-medium">Agroganam Technologies</span>, 
-                delivering production-level apps and collaborating on real-time incubation center projects.
+                Recognized as the <span className="text-white font-medium">2X Winner</span> of Invento Gamathon (2025 & 2026), and secured <span className="text-white font-medium">First Place</span> at Techxpression Hackathon as a Backend Developer.
               </p>
 
               <div className="mt-auto space-y-6">

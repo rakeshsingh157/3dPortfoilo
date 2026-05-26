@@ -2,10 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "framer-motion";
-import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FiSend, FiUser, FiMail, FiMessageSquare, FiActivity, FiShield } from "react-icons/fi";
+import { FiSend, FiUser, FiMail, FiMessageSquare, FiActivity, FiShield, FiLoader } from "react-icons/fi";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +16,26 @@ const Contact = () => {
   const [loaded, setLoaded] = useState(false);
   const [loadingProgress, setLoadingProgress] = useState(0);
   const [currentFrameIdx, setCurrentFrameIdx] = useState(0);
+  const [isSending, setIsSending] = useState(false);
+  const [cooldown, setCooldown] = useState(0);
+
+  // Rate limiting: track submission timestamps
+  const submissionTimestamps = useRef([]);
+  const MAX_SUBMISSIONS = 3;
+  const RATE_LIMIT_WINDOW = 5 * 60 * 1000; // 5 minutes
+  const COOLDOWN_SECONDS = 30;
+
+  // Cooldown timer
+  useEffect(() => {
+    if (cooldown <= 0) return;
+    const timer = setInterval(() => {
+      setCooldown((prev) => {
+        if (prev <= 1) { clearInterval(timer); return 0; }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [cooldown]);
 
   const frameCount = 160;
   const imagesRef = useRef([]);
@@ -107,22 +126,79 @@ const Contact = () => {
     };
   }, [loaded]);
 
-  const sendEmail = (e) => {
+  // Validate email format
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  const sendEmail = async (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_ezep6zg",
-        "template_6fbergt",
-        formRef.current,
-        "0GSfZwE2fSCw9lqcZ"
-      )
-      .then(() => {
-        toast.success("TRANSMISSION_COMPLETE 🚀");
-        formRef.current.reset();
-      })
-      .catch((err) => {
-        toast.error("CONNECTION_FAILURE ❌");
+
+    const form = formRef.current;
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    // Honeypot check — if filled, it's a bot
+    if (form.website?.value) {
+      toast.success("TRANSMISSION_COMPLETE "); // Fake success for bots
+      form.reset();
+      return;
+    }
+
+    // Field validation
+    if (!name || name.length < 2) {
+      toast.error("IDENT_SIGNATURE requires at least 2 characters");
+      return;
+    }
+    if (!isValidEmail(email)) {
+      toast.error("INVALID_COMM_PATH — check email format");
+      return;
+    }
+    if (!message || message.length < 10) {
+      toast.error("DATA_PAYLOAD too short — minimum 10 characters");
+      return;
+    }
+
+    // Rate limiting check
+    const now = Date.now();
+    submissionTimestamps.current = submissionTimestamps.current.filter(
+      (ts) => now - ts < RATE_LIMIT_WINDOW
+    );
+    if (submissionTimestamps.current.length >= MAX_SUBMISSIONS) {
+      toast.error("RATE_LIMIT_EXCEEDED — try again in a few minutes");
+      return;
+    }
+
+    // Cooldown check
+    if (cooldown > 0) {
+      toast.error(`COOLDOWN_ACTIVE — wait ${cooldown}s`);
+      return;
+    }
+
+    setIsSending(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message, website: form.website?.value || '' }),
       });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        toast.error(data.error || "CONNECTION_FAILURE");
+        return;
+      }
+
+      toast.success("TRANSMISSION_COMPLETE");
+      form.reset();
+      submissionTimestamps.current.push(Date.now());
+      setCooldown(COOLDOWN_SECONDS);
+    } catch (err) {
+      toast.error("CONNECTION_FAILURE — server unreachable");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -225,49 +301,74 @@ const Contact = () => {
               onSubmit={sendEmail}
               className="bg-white/[0.03] backdrop-blur-md border border-white/10 p-10 md:p-14 rounded-none shadow-[0_20px_50px_rgba(0,0,0,0.5)] space-y-10 group"
             >
+              {/* Honeypot — hidden from humans, bots fill it */}
+              <input
+                type="text"
+                name="website"
+                autoComplete="off"
+                tabIndex="-1"
+                style={{ position: 'absolute', left: '-9999px', opacity: 0, height: 0, width: 0 }}
+              />
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div className="space-y-3">
-                  <label className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-cyan-500/50 block ml-1">IDENT_SIGNATURE</label>
+                  <label className="text-[11px] font-mono font-bold uppercase tracking-[0.3em] text-cyan-400 block ml-1">IDENT_SIGNATURE</label>
                   <input
                     name="name"
                     type="text"
                     placeholder="ENTER_NAME"
                     required
-                    className="w-full bg-white/5 border-b border-white/10 py-5 px-6 text-white text-[11px] outline-none focus:border-cyan-600 transition-all placeholder:text-cyan-950/20"
+                    minLength={2}
+                    maxLength={100}
+                    className="w-full bg-white/5 border-b border-white/10 py-5 px-6 text-white text-sm outline-none focus:border-cyan-500 transition-all placeholder:text-white/30"
                   />
                 </div>
                 <div className="space-y-3">
-                  <label className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-cyan-500/50 block ml-1">COMM_PATH_ADDR</label>
+                  <label className="text-[11px] font-mono font-bold uppercase tracking-[0.3em] text-cyan-400 block ml-1">COMM_PATH_ADDR</label>
                   <input
                     name="email"
                     type="email"
                     placeholder="ENTER_EMAIL"
                     required
-                    className="w-full bg-white/5 border-b border-white/10 py-5 px-6 text-white text-[11px] outline-none focus:border-cyan-600 transition-all placeholder:text-cyan-950/20"
+                    maxLength={254}
+                    className="w-full bg-white/5 border-b border-white/10 py-5 px-6 text-white text-sm outline-none focus:border-cyan-500 transition-all placeholder:text-white/30"
                   />
                 </div>
               </div>
 
               <div className="space-y-3">
-                <label className="text-[9px] font-mono font-bold uppercase tracking-[0.3em] text-cyan-500/50 block ml-1">DATA_PAYLOAD</label>
+                <label className="text-[11px] font-mono font-bold uppercase tracking-[0.3em] text-cyan-400 block ml-1">DATA_PAYLOAD</label>
                 <textarea
                   name="message"
                   placeholder="INPUT_TRANSMISSION..."
                   required
-                  className="w-full bg-white/5 border-b border-white/10 py-5 px-6 text-white text-[11px] outline-none focus:border-cyan-600 transition-all min-h-[140px] resize-none placeholder:text-cyan-950/20"
+                  minLength={10}
+                  maxLength={5000}
+                  className="w-full bg-white/5 border-b border-white/10 py-5 px-6 text-white text-sm outline-none focus:border-cyan-500 transition-all min-h-[140px] resize-none placeholder:text-white/30"
                 />
               </div>
 
               <div className="flex justify-center md:justify-end">
                 <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 50px rgba(6, 182, 212, 0.3)" }}
-                whileTap={{ scale: 0.95 }}
-                type="submit"
-                className="group flex items-center space-x-6 bg-cyan-600 text-black font-black text-[11px] uppercase tracking-[0.6em] px-24 py-6 shadow-2xl transition-all"
-              >
-                <span>TRANSMIT</span>
-                <FiSend className="text-lg transition-transform group-hover:translate-x-1" />
-              </motion.button>
+                  whileHover={!isSending && cooldown === 0 ? { scale: 1.05, boxShadow: "0 0 50px rgba(6, 182, 212, 0.3)" } : {}}
+                  whileTap={!isSending && cooldown === 0 ? { scale: 0.95 } : {}}
+                  type="submit"
+                  disabled={isSending || cooldown > 0}
+                  className={`group flex items-center space-x-6 font-black text-[11px] uppercase tracking-[0.6em] px-24 py-6 shadow-2xl transition-all ${
+                    isSending || cooldown > 0
+                      ? 'bg-cyan-900/50 text-cyan-300/50 cursor-not-allowed'
+                      : 'bg-cyan-600 text-black cursor-pointer'
+                  }`}
+                >
+                  <span>
+                    {isSending ? 'TRANSMITTING...' : cooldown > 0 ? `COOLDOWN ${cooldown}s` : 'TRANSMIT'}
+                  </span>
+                  {isSending ? (
+                    <FiLoader className="text-lg animate-spin" />
+                  ) : (
+                    <FiSend className="text-lg transition-transform group-hover:translate-x-1" />
+                  )}
+                </motion.button>
               </div>
             </form>
           </motion.div>
@@ -276,8 +377,24 @@ const Contact = () => {
 
       <ToastContainer
         position="bottom-right"
-        toastClassName="bg-black border border-cyan-500/30 text-white font-mono text-[9px] rounded-none backdrop-blur-xl"
-        progressClassName="bg-cyan-600"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        theme="dark"
+        toastStyle={{
+          background: '#0a0a0a',
+          border: '1px solid rgba(6, 182, 212, 0.25)',
+          borderRadius: 0,
+          color: '#e5e5e5',
+          fontFamily: 'monospace',
+          fontSize: '11px',
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          backdropFilter: 'blur(20px)',
+          boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6)',
+        }}
+        icon={false}
       />
     </div>
   );

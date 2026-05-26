@@ -1,0 +1,145 @@
+# =============================================
+# robots.txt for rakeshinfo.in
+# Portfolio of Rakesh Kumar Singh
+# Last updated: 2026-05-26
+# =============================================
+
+# --- ALLOW ALL MAJOR SEARCH ENGINE BOTS ---
+# Google, Bing, Yahoo, DuckDuckGo, Baidu, Yandex
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /private/
+Disallow: /internal/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /private/
+Disallow: /internal/
+Crawl-delay: 10
+
+User-agent: Slurp
+Allow: /
+Disallow: /api/
+Disallow: /private/
+Disallow: /internal/
+Crawl-delay: 10
+
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /api/
+Disallow: /private/
+Disallow: /internal/
+Crawl-delay: 10
+
+User-agent: Baiduspider
+Allow: /
+Disallow: /api/
+Disallow: /private/
+Disallow: /internal/
+Crawl-delay: 10
+
+User-agent: YandexBot
+Allow: /
+Disallow: /api/
+Disallow: /private/
+Disallow: /internal/
+Crawl-delay: 10
+
+# --- BLOCK AI TRAINING CRAWLERS ---
+# These bots scrape content for AI model training without adding SEO value.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+# --- BLOCK COMMON SPAM/SCRAPER BOTS ---
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# --- DEFAULT RULE (catch-all) ---
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /private/
+Disallow: /internal/
+Disallow: /admin/
+Disallow: /login
+Disallow: /register
+Disallow: /checkout
+Disallow: /cart
+Disallow: /?s=
+Disallow: /tag/
+Disallow: /author/
+Crawl-delay: 10
+
+# Allow static assets
+Allow: /images/
+Allow: /image3/
+Allow: /favicon.*
+Allow: /og-image.jpg
+Allow: /icons.svg
+
+# Allow all portfolio images for Google Image Search indexing
+Allow: /profile.jpeg
+Allow: /1.jpg
+Allow: /2.jpg
+Allow: /3.jpg
+Allow: /4.jpg
+Allow: /5.jpg
+Allow: /6.jpg
+Allow: /7.jpg
+Allow: /8.jpg
+
+# --- SITEMAP ---
+Sitemap: https://rakeshinfo.in/sitemap.xml
