@@ -124,7 +124,8 @@ const Tools = [
                 {/* CTA */}
                 <div className="pt-6">
                     <a 
-                        href="https://www.rakeshinfo.in/resume.pdf"
+                        href="/Resume.pdf"
+                        download="Rakesh_Kumar_Singh_Resume.pdf"
                         target="_blank"
                         rel="noreferrer"
                         className="inline-flex items-center space-x-6 px-12 py-4 bg-blue-600 text-white font-bold text-xs uppercase tracking-widest hover:bg-blue-700 transition-all duration-300 rounded-full shadow-lg shadow-blue-900/20"
