@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FiSend, FiUser, FiMail, FiMessageSquare, FiActivity, FiShield, FiLoader } from "react-icons/fi";
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 const Contact = () => {
   const containerRef = useRef(null);
@@ -18,6 +19,7 @@ const Contact = () => {
   const [currentFrameIdx, setCurrentFrameIdx] = useState(0);
   const [isSending, setIsSending] = useState(false);
   const [cooldown, setCooldown] = useState(0);
+  const [isFocused, setIsFocused] = useState(false);
 
   // Rate limiting: track submission timestamps
   const submissionTimestamps = useRef([]);
@@ -205,7 +207,7 @@ const Contact = () => {
     <div
       ref={containerRef}
       id="contactme"
-      className="relative w-full h-screen bg-[#020202] overflow-hidden flex items-center justify-center font-mono select-none"
+      className="relative w-full h-screen bg-[#020202] overflow-hidden flex items-center justify-center font-mono"
     >
       {/* 1. Loading Module (Ultra-high Z) */}
       <AnimatePresence>
@@ -278,7 +280,7 @@ const Contact = () => {
 
       {/* 5. Central Contact UI (Z-50) */}
       <AnimatePresence>
-        {loaded && currentFrameIdx >= 120 && (
+        {loaded && (currentFrameIdx >= 120 || isFocused) && (
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -287,7 +289,7 @@ const Contact = () => {
             className="relative z-50 w-full max-w-4xl px-6 pointer-events-auto"
           >
             <div className="text-center mb-8">
-              <h2 className="text-6xl md:text-9xl font-black text-white uppercase tracking-tighter leading-none">
+              <h2 className="text-4xl sm:text-5xl md:text-9xl font-black text-white uppercase tracking-tighter leading-none">
               COMM<span className="text-cyan-500 block sm:inline">.LINK</span>
             </h2>
               <div className="flex items-center justify-center space-x-2 text-cyan-500/60 font-mono text-[9px] tracking-[0.6em] uppercase">
@@ -320,6 +322,8 @@ const Contact = () => {
                     required
                     minLength={2}
                     maxLength={100}
+                    onFocus={() => setIsFocused(true)}
+                    onBlur={() => setIsFocused(false)}
                     className="w-full bg-white/5 border-b border-white/10 py-5 px-6 text-white text-sm outline-none focus:border-cyan-500 transition-all placeholder:text-white/30"
                   />
                 </div>
@@ -331,6 +335,8 @@ const Contact = () => {
                     placeholder="ENTER_EMAIL"
                     required
                     maxLength={254}
+                    onFocus={() => setIsFocused(true)}
+                    onBlur={() => setIsFocused(false)}
                     className="w-full bg-white/5 border-b border-white/10 py-5 px-6 text-white text-sm outline-none focus:border-cyan-500 transition-all placeholder:text-white/30"
                   />
                 </div>
@@ -344,6 +350,8 @@ const Contact = () => {
                   required
                   minLength={10}
                   maxLength={5000}
+                  onFocus={() => setIsFocused(true)}
+                  onBlur={() => setIsFocused(false)}
                   className="w-full bg-white/5 border-b border-white/10 py-5 px-6 text-white text-sm outline-none focus:border-cyan-500 transition-all min-h-[140px] resize-none placeholder:text-white/30"
                 />
               </div>

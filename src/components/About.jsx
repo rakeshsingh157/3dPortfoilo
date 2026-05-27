@@ -77,7 +77,7 @@ const Tools = [
                 {/* Header */}
                 <div className="space-y-2">
                     <p className="text-blue-500 font-mono text-[10px] uppercase tracking-[0.5em]">SYSTEM INFO</p>
-                    <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tighter uppercase">
+                    <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tighter uppercase">
                         About Me<span className="text-blue-500">.</span>
                     </h2>
                 </div>

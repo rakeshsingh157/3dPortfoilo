@@ -232,7 +232,7 @@ export default function Hero() {
                                     transition={{ duration: 0.8, ease: "easeOut" }}
                                     className="mb-4"
                                 >
-                                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-white tracking-[0.1em] uppercase leading-none" style={{ textShadow: "0 0 20px rgba(255,255,255,0.2)" }}>
+                                    <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-white tracking-[0.1em] uppercase leading-none" style={{ textShadow: "0 0 20px rgba(255,255,255,0.2)" }}>
                                         {titleText}
                                     </h1>
                                 </motion.div>
